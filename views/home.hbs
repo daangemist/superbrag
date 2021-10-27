@@ -1,0 +1,12 @@
+<h1>Welcome home!</h1>
+{{#if loggedIn }}
+    <form method="post" action="/brags/create">
+        <textarea name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
+        <input type="submit" value="Create" />
+    </form>    
+{{/if}}
+
+{{#each posts}}
+<p>{{{ markdown body }}}</p>
+<p>Posted: <span title="{{ date publication }}">{{ relative publication }}</span></p>
+{{/each}}
