@@ -1,0 +1,35 @@
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.introduction {
+  font-size: 120%;
+}
+
+.brags-container {
+  margin-left: 15px;
+  padding-left: 4px;
+  border-left: 1px solid #cccccc;
+}
+
+.brags-container p {
+  margin: .25rem;
+}
+
+.brags-container .brag {
+  margin-bottom: 1rem;
+}
+
+.brag .date {
+  font-size: 75%;
+  margin-left: .25rem;
+}
+
+main {
+  padding-top: 0px;
+}

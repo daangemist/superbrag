@@ -1,19 +1,27 @@
-import 'dotenv/config';
 import express from 'express';
+import { getConfig, loadConfig } from './config';
 import db from './db';
 import http from './http';
 
 async function main() {
   try {
+    // load the configuration
+    try {
+      await loadConfig();
+    } catch (_error) {
+      console.log(_error);
+      throw new Error('Unable to load config.json, did you copy it from config.json.dist at installation?');
+    }
+
+    const config = getConfig();
     const app = express();
-    const port = process.env.PORT || 3000;
 
     // Initialize the db
     await db();
 
     http(app);
-    app.listen(port, () => {
-      console.log(`superbrag listening at http://0.0.0.0:${port}`);
+    app.listen(config.port, () => {
+      console.log(`superbrag listening at http://0.0.0.0:${config.port}`);
     });
   } catch (error) {
     console.error('Error while starting superbrag.', error);
