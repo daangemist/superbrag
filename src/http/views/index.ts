@@ -1,13 +1,14 @@
 import { Express } from 'express';
 import exphbs from 'express-handlebars';
-import { markdown, relative, date } from './helpers';
+import { markdown, relative, date, urlencode } from './helpers';
 
 const hbs = exphbs.create({
   extname: '.hbs',
   helpers: {
     markdown,
     relative,
-    date
+    date,
+    urlencode
   }
 });
 
