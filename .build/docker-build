@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+VERSION=$1
+
+if [ "$VERSION" = "" ]; then echo "VERSION is not set" && exit 2; else echo "version is '$VERSION'"; fi
+
+if [ -z ${FAST+x} ]; then
+    docker buildx build -f .build/Dockerfile --push --platform linux/amd64,linux/arm64,linux/arm/v7 -t ghcr.io/daangemist/superbrag:$VERSION .;
+else
+    docker build -f .build/Dockerfile -t ghcr.io/daangemist/superbrag:$VERSION .;
+fi
