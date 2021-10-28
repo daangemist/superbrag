@@ -1,17 +1,16 @@
-
 export type Brag = {
-  id: string,
-  publication: number,
-  published: boolean,
-  body: string,
-}
+  id: string;
+  publication: number;
+  published: boolean;
+  body: string;
+};
 
 export type Config = {
-  apiEnabled: boolean,
-  port: number,
-  title: string,
-  introduction?: string,
-  sessionSecret: string,
-  accessPassword: string,
-  avatar?: string,
-}
+  apiEnabled: boolean;
+  port: number;
+  title: string;
+  introduction?: string;
+  sessionSecret: string;
+  accessPassword: string;
+  avatar?: string;
+};

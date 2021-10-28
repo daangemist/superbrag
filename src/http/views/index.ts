@@ -8,14 +8,11 @@ const hbs = exphbs.create({
     markdown,
     relative,
     date,
-    urlencode
-  }
+    urlencode,
+  },
 });
 
 export default function (app: Express) {
-  app.engine(
-    '.hbs',
-    hbs.engine,
-  );
+  app.engine('.hbs', hbs.engine);
   app.set('view engine', 'hbs');
 }

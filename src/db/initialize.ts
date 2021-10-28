@@ -1,7 +1,7 @@
 import { SuperSave, EntityDefinition, Collection } from 'supersave';
 import { DB_TABLE_BRAG } from '../constants';
 
-const BRAG_DEFINITION: EntityDefinition|Collection = {
+const BRAG_DEFINITION: EntityDefinition | Collection = {
   name: DB_TABLE_BRAG,
   template: {
     published: false,
@@ -11,7 +11,7 @@ const BRAG_DEFINITION: EntityDefinition|Collection = {
     published: 'boolean',
   },
   relations: [],
-}
+};
 
 export default async (connectionString: string, apiEnabled: boolean) => {
   const superSave = await SuperSave.create(connectionString);

@@ -12,10 +12,10 @@ export default (app: Express) => {
     const bragsRepository = await getBragsRepository();
     await bragsRepository.create({
       body: req.body.contents.trim(),
-      publication: Math.round((new Date()).getTime() / 1000),
+      publication: Math.round(new Date().getTime() / 1000),
       published: true,
     });
 
     res.redirect('/');
-  })
-}
+  });
+};

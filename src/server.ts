@@ -10,7 +10,9 @@ async function main() {
       await loadConfig();
     } catch (_error) {
       console.log(_error);
-      throw new Error('Unable to load config.json, did you copy it from config.json.dist at installation?');
+      throw new Error(
+        'Unable to load config.json, did you copy it from config.json.dist at installation?'
+      );
     }
 
     const config = getConfig();

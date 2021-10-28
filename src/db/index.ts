@@ -21,4 +21,4 @@ export default (): Promise<SuperSave> => dbPromise;
 export const getBragsRepository = async (): Promise<Repository<Brag>> => {
   const initializedDb = await dbPromise;
   return initializedDb.getRepository<Brag>(DB_TABLE_BRAG);
-}
+};
