@@ -2,10 +2,11 @@ import { Config } from "../types";
 import path from 'path';
 
 let config: Config = {
-  title: 'Default',
+  title: 'Superbrag',
   port: 3000,
   accessPassword: '',
   sessionSecret: '',
+  avatar: '',
 }
 
 export const getConfig = () => config;

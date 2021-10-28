@@ -5,6 +5,7 @@ import home from './home';
 
 export default function (app: express.Express) {
   app.use('/assets', express.static('assets'));
+  app.use('/uploads', express.static('uploads'));
 
   // GET: home
   home(app);

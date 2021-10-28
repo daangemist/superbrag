@@ -3,5 +3,6 @@
     "title": "Superbrag",
     "introduction": "",
     "sessionSecret": "",
-    "accessPassword": "fill-in-password"
+    "accessPassword": "fill-in-password",
+    "avatar": ""
 }

@@ -11,7 +11,9 @@ footer {
   font-size: 120%;
 }
 
+
 .brags-container {
+  clear: both;
   margin-left: 15px;
   padding-left: .35rem;
   border-left: 1px solid #cccccc;
@@ -19,6 +21,7 @@ footer {
 
 .brags-container p {
   margin: .25rem;
+  margin-left: 0px;
 }
 
 .brags-container .brag {
@@ -27,6 +30,7 @@ footer {
 
 .brag .date {
   font-size: 75%;
+  color: #999999;
 }
 
 .brag .admin-options {
@@ -36,4 +40,14 @@ footer {
 
 main {
   padding-top: 0px;
+}
+
+.pulled-left {
+  float: left !important;
+}
+
+.avatar {
+  margin-right: 15px;
+  margin-bottom: 10px;
+  border-radius: 100%;
 }

@@ -12,4 +12,5 @@ export type Config = {
   introduction?: string,
   sessionSecret: string,
   accessPassword: string,
+  avatar?: string,
 }

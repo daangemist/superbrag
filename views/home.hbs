@@ -7,6 +7,9 @@
 {{/if}}
 
 {{#if config.introduction }}
+  {{#if config.avatar}}
+    <img class="pulled-left avatar" src="{{ config.avatar }}" height="80" width="80" alt="Avatar image" />
+  {{/if}}
   <p class="introduction">{{config.introduction}}</p>
 {{/if}}
 
@@ -14,7 +17,7 @@
   {{#each brags}}
     <div class="brag">
       {{{ markdown body }}}
-      <div class="date">Posted: <span title="{{ date publication }}">{{ relative publication }}</span></div>
+      <div class="date"><span title="{{ date publication }}">{{ relative publication }}</span></div>
       {{#if ../loggedIn }}
         <div class="admin-options"><a href="https://twitter.com/intent/tweet?text={{ urlencode body }}" target="_blank" rel="noreferrer">Tweet</a></div>
       {{/if}}
