@@ -6,6 +6,7 @@ import { Config } from '../types';
 const readFileAsync = promisify(readFile);
 
 let config: Config = {
+  connectionString: process.env.DB ?? 'sqlite://db.sqlite',
   apiEnabled: process.env.API_ENABLED === 'true',
   title: 'Superbrag',
   port: process.env.PORT ? parseInt(process.env.PORT) : 3000,

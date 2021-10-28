@@ -1,9 +1,11 @@
 {
   "name": "superbrag",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An open source application to easily share your updates while building in public.",
   "main": "build/index.js",
   "scripts": {
+    "start": "node build/server.js",
     "build": "tsc",
     "watch": "tsc-watch --noClear --onSuccess \"node ./build/server.js\"",
     "lint": "eslint --ext=.ts ./src",

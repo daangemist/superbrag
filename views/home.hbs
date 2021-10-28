@@ -1,16 +1,17 @@
 <h1>{{ config.title }}</h1>
-{{#if loggedIn }}
-    <form method="post" action="/brags/create">
-        <textarea name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
-        <input type="submit" value="Create" />
-    </form>
-{{/if}}
-
 {{#if config.introduction }}
   {{#if config.avatar}}
     <img class="pulled-left avatar" src="{{ config.avatar }}" height="80" width="80" alt="Avatar image" />
   {{/if}}
   <p class="introduction">{{config.introduction}}</p>
+  <div class="clear"></div>
+{{/if}}
+
+{{#if loggedIn }}
+    <form method="post" action="/brags/create">
+        <textarea name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
+        <input type="submit" value="Create" />
+    </form>
 {{/if}}
 
 <div class="brags-container">
@@ -22,6 +23,10 @@
         <div class="admin-options"><a href="https://twitter.com/intent/tweet?text={{ urlencode body }}" target="_blank" rel="noreferrer">Tweet</a></div>
       {{/if}}
     </div>
+  {{ else }}
+    {{#if firstPage }}
+      <p>No contents found. Please <a href="/login">login</a> to start posting updates.</p>
+    {{/if}}
   {{/each}}
 </div>
 

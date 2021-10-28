@@ -3,12 +3,15 @@ import { Express } from 'express';
 import { DB_TABLE_BRAG } from '../constants';
 import { Brag } from '../types';
 import internalInitialize from './initialize';
+import { getConfig } from '../config';
 
 let dbPromise: Promise<SuperSave>;
 
 export async function initialize(app?: Express) {
-  const connectionString = process.env.DB ?? 'sqlite://db.sqlite';
-  dbPromise = internalInitialize(connectionString, typeof app !== 'undefined');
+  dbPromise = internalInitialize(
+    getConfig().connectionString,
+    typeof app !== 'undefined'
+  );
 
   if (app) {
     const superSave = await dbPromise;

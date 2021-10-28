@@ -13,10 +13,12 @@ export default function (app: Express) {
       .eq('published', true)
       .limit(PAGE_SIZE + 1);
 
+    let firstPage = true;
     if (req.query.offset) {
       const afterPublished = parseInt(`${req.query.offset}`);
       if (!isNaN(afterPublished)) {
         query.lt('publication', afterPublished);
+        firstPage = false;
       }
     }
 
@@ -33,6 +35,7 @@ export default function (app: Express) {
       brags: brags.slice(0, PAGE_SIZE),
       config: getConfig(),
       nextOffset,
+      firstPage,
     });
   });
 }

@@ -13,7 +13,6 @@ footer {
 
 
 .brags-container {
-  clear: both;
   margin-left: 15px;
   padding-left: .35rem;
   border-left: 1px solid #cccccc;
@@ -50,4 +49,8 @@ main {
   margin-right: 15px;
   margin-bottom: 10px;
   border-radius: 100%;
+}
+
+.clear {
+  clear: both;
 }

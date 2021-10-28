@@ -6,6 +6,7 @@ export type Brag = {
 };
 
 export type Config = {
+  connectionString: string;
   apiEnabled: boolean;
   port: number;
   title: string;
