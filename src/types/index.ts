@@ -7,6 +7,7 @@ export type Brag = {
 }
 
 export type Config = {
+  apiEnabled: boolean,
   port: number,
   title: string,
   introduction?: string,

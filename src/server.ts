@@ -1,6 +1,6 @@
 import express from 'express';
 import { getConfig, loadConfig } from './config';
-import db from './db';
+import { initialize } from './db';
 import http from './http';
 
 async function main() {
@@ -17,7 +17,7 @@ async function main() {
     const app = express();
 
     // Initialize the db
-    await db();
+    await initialize(config.apiEnabled ? app : undefined);
 
     http(app);
     app.listen(config.port, () => {

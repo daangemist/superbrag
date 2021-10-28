@@ -2,6 +2,7 @@ import { Config } from "../types";
 import path from 'path';
 
 let config: Config = {
+  apiEnabled: false,
   title: 'Superbrag',
   port: 3000,
   accessPassword: '',

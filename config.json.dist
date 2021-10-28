@@ -4,5 +4,6 @@
     "introduction": "",
     "sessionSecret": "",
     "accessPassword": "fill-in-password",
-    "avatar": ""
+    "avatar": "",
+    "apiEnabled": false,
 }
