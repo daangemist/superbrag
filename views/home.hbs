@@ -24,3 +24,7 @@
     </div>
   {{/each}}
 </div>
+
+{{#if nextOffset }}
+  <a href="?offset={{ nextOffset }}">&gt;&gt; Next page</a>
+{{/if}}
