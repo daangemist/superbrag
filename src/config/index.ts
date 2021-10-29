@@ -14,6 +14,7 @@ let config: Config = {
   sessionSecret: process.env.SESSION_SECRET ?? '',
   introduction: process.env.INTRODUCTION,
   avatar: process.env.AVATAR,
+  secureSite: process.env.SECURE_SITE === 'true',
 };
 
 export const getConfig = () => config;

@@ -1,5 +1,8 @@
 import { Express } from 'express';
+import add from 'date-fns/add'
+import { generate } from '../../../auth';
 import { getConfig } from '../../../config';
+import { COOKIE_NAME } from '../../middleware/logged-in';
 
 export default (app: Express) =>
   app.post('/login', (req, res) => {
@@ -17,8 +20,15 @@ export default (app: Express) =>
       return;
     }
 
-    // @ts-expect-error Dynamic value on session.
-    req.session.loggedIn = true;
-
-    res.redirect('/');
+    const token = generate();
+    res.cookie(
+      COOKIE_NAME,
+      token,
+      {
+        secure: getConfig().secureSite,
+        httpOnly: true,
+        expires: add(new Date(), { days: 60 }),
+      }
+    )
+      .redirect('/');
   });

@@ -1,6 +1,8 @@
 import { Express } from 'express';
+import { verify } from '../../../auth';
 import { getConfig } from '../../../config';
 import { getBragsRepository } from '../../../db';
+import { COOKIE_NAME } from '../../middleware/logged-in';
 
 const PAGE_SIZE = 25;
 
@@ -29,9 +31,9 @@ export default function (app: Express) {
       nextOffset = brags[PAGE_SIZE - 1].publication;
     }
 
+    const token = req.cookies[COOKIE_NAME] ?? '';
     res.render('home', {
-      // @ts-expect-error Dynamic attribute on session.
-      loggedIn: req.session.loggedIn,
+      loggedIn: token ? verify(token) : false,
       brags: brags.slice(0, PAGE_SIZE),
       config: getConfig(),
       nextOffset,

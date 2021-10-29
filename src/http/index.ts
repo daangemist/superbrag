@@ -1,13 +1,12 @@
 import express from 'express';
+import cookieParser from 'cookie-parser';
 import routes from './routes';
-import session from './session';
 import view from './views';
 
 export default function (app: express.Express) {
+  app.disable('x-powered-by');
   app.use(express.urlencoded({ extended: true }));
-
-  // First, initialize the session
-  session(app);
+  app.use(cookieParser());
 
   // The handlebars view engine
   view(app);

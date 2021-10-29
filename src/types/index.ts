@@ -14,4 +14,5 @@ export type Config = {
   sessionSecret: string;
   accessPassword: string;
   avatar?: string;
+  secureSite: boolean;
 };
