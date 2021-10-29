@@ -8,10 +8,11 @@
 {{/if}}
 
 {{#if loggedIn }}
-    <form method="post" action="/brags/create">
-        <textarea name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
-        <input type="submit" value="Create" />
-    </form>
+  <form method="post" action="/brags/create">
+      <textarea name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
+      <input type="submit" value="Create" />
+  </form>
+  <a href="/logout" class="pulled-right">Logout</a>
 {{/if}}
 
 <div class="brags-container">

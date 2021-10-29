@@ -45,6 +45,10 @@ main {
   float: left !important;
 }
 
+.pulled-right {
+  float: right !important;
+}
+
 .avatar {
   margin-right: 15px;
   margin-bottom: 10px;

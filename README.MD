@@ -66,6 +66,7 @@ set, else the application will not start.
 | accessPassword | ACCESS_PASSWORD | x | string || The password with which can be logged in to post new brags.|
 | port | PORT || number | 3000 | The port on which the application will be available. |
 | secureSite | SECURE_SITE || boolean | false | Indicates whether the site is using TLS. Is used for the auth cookie `secureSite` setting. |
+| domain | DOMAIN || string | `undefined` | An optional configuration of the domain. Is used to set the domain on the auth cookie, if available. |
 | connectionString | DB || string | sqlite://db.sqlite | A [supersave](https://www.npmjs.com/package/supersave) connection string. Currently only `sqlite` is supported. On docker, the default is `sqlite:///data/db.sqlite`.
 | apiEnabled | API_ENABLED || boolean | false | Enable an api, use `/api/brags` to retrieve a list of brags.
 | title | TITLE || string | Superbrag | The title for the application. Is shown in the title bar, and at the top of the page. |

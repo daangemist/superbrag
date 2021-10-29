@@ -15,4 +15,5 @@ export type Config = {
   accessPassword: string;
   avatar?: string;
   secureSite: boolean;
+  domain?: string;
 };

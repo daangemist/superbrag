@@ -1,4 +1,4 @@
-import { Express } from 'express';
+import { CookieOptions, Express } from 'express';
 import add from 'date-fns/add'
 import { generate } from '../../../auth';
 import { getConfig } from '../../../config';
@@ -21,14 +21,18 @@ export default (app: Express) =>
     }
 
     const token = generate();
+    const cookieOptions: CookieOptions = {
+      secure: getConfig().secureSite,
+      httpOnly: true,
+      expires: add(new Date(), { days: 60 }),
+    };
+    if (getConfig().domain) {
+      cookieOptions.domain = getConfig().domain;
+    }
     res.cookie(
       COOKIE_NAME,
       token,
-      {
-        secure: getConfig().secureSite,
-        httpOnly: true,
-        expires: add(new Date(), { days: 60 }),
-      }
+      cookieOptions
     )
       .redirect('/');
   });
