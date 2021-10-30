@@ -8,13 +8,16 @@
 {{/if}}
 
 {{#if loggedIn }}
-  <form method="post" action="/brags/create">
-      <textarea id="editor" name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
-      <input type="submit" value="Create" />
-      <hr class="small-margin" />
-      <div id="compiled-markdown"></div>
-  </form>
-  <a href="/logout" class="pulled-right">Logout</a>
+  <div id="admin">
+    <div id="admin-close" class="pulled-right clickable" title="Close">X</div>
+    <form method="post" action="/brags/create">
+        <textarea id="editor" name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
+        <input type="submit" value="Create" />
+        <hr class="small-margin" />
+        <div id="compiled-markdown"></div>
+    </form>
+    <a href="/logout" class="pulled-right">Logout</a>
+  </div>
 {{/if}}
 
 <div class="brags-container">

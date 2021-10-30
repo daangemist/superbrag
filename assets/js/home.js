@@ -14,3 +14,10 @@ document.addEventListener(
   },
   false
 );
+
+document.getElementById('admin-close').addEventListener(
+  'click',
+  function (event) {
+    document.getElementById('admin').remove();
+  }
+);
