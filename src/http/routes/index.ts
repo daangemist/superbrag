@@ -9,7 +9,15 @@ import { allowList } from '../middleware/allow-list';
 import { bragDelete, bragDeleteForm } from './brags-delete';
 
 export default function (app: express.Express) {
-  // default paths
+  // shared assets between node and browser.
+  app.get(
+    '/assets/js/vendor/marked.js',
+    staticFile(
+      path.join(__dirname, '../../../node_modules/marked/lib/marked.js')
+    )
+  );
+
+  // static paths
   app.use('/assets', express.static('assets'));
   app.use('/uploads', express.static('uploads'));
   app.get(

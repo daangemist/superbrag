@@ -1,5 +1,4 @@
 footer {
-  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
@@ -11,15 +10,14 @@ footer {
   font-size: 120%;
 }
 
-
 .brags-container {
   margin-left: 15px;
-  padding-left: .35rem;
+  padding-left: 0.35rem;
   border-left: 1px solid #cccccc;
 }
 
 .brags-container p {
-  margin: .25rem;
+  margin: 0.25rem;
   margin-left: 0px;
 }
 
@@ -61,4 +59,8 @@ main {
 
 .danger {
   color: red;
+}
+
+.small-margin {
+  margin: 4px;
 }

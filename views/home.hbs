@@ -9,8 +9,10 @@
 
 {{#if loggedIn }}
   <form method="post" action="/brags/create">
-      <textarea name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
+      <textarea id="editor" name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
       <input type="submit" value="Create" />
+      <hr class="small-margin" />
+      <div id="compiled-markdown"></div>
   </form>
   <a href="/logout" class="pulled-right">Logout</a>
 {{/if}}

@@ -12,10 +12,13 @@
     {{{body}}}
   </main>
   <footer>
-        <hr>
-        <p>
-            Powered by <a href="https://github.com/daangemist/superbrag" target="_blank">superbrag</a><br>
-        </p>
-    </footer>
+    <hr class="small-margin" />
+    <p>
+      Powered by <a href="https://github.com/daangemist/superbrag" target="_blank">superbrag</a><br>
+    </p>
+  </footer>
+  {{#each scripts}}
+    <script src="/assets/js/{{.}}" type="text/javascript"></script>
+  {{/each}}
 </body>
 </html>

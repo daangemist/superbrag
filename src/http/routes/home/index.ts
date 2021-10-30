@@ -32,12 +32,17 @@ export default function (app: Express) {
     }
 
     const token = req.cookies[COOKIE_NAME] ?? '';
+    const loggedIn = token ? verify(token) : false;
+
     res.render('home', {
-      loggedIn: token ? verify(token) : false,
+      loggedIn,
       brags: brags.slice(0, PAGE_SIZE),
       config: getConfig(),
       nextOffset,
       firstPage,
+      scripts: loggedIn
+        ? ['vendor/marked.js', 'vendor/purify.min.js', 'home.js']
+        : [],
     });
   });
 }
