@@ -16,6 +16,7 @@ let config: Config = {
   avatar: process.env.AVATAR,
   secureSite: process.env.SECURE_SITE === 'true',
   domain: process.env.DOMAIN ?? undefined,
+  ipsAllowed: process.env.IPS_ALLOWED ?? undefined,
 };
 
 export const getConfig = () => config;

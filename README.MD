@@ -72,6 +72,7 @@ set, else the application will not start.
 | title | TITLE || string | Superbrag | The title for the application. Is shown in the title bar, and at the top of the page. |
 | introduction | INTRODUCTION || string || Optionally, an introduction text that is shown on the page.
 | avatar | AVATAR || string || Optionally, the URL for an avatar to display. It is rendered with *with/height=80* on the page.
+| ipsAllowed | IPS_ALLOWED || string || A comma-separated list of IP addresses which are allowed to access `/login`. 
 
 If you want to invalidate all logins, change the `sessionSecret` value.
 

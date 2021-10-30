@@ -16,4 +16,5 @@ export type Config = {
   avatar?: string;
   secureSite: boolean;
   domain?: string;
+  ipsAllowed?: string;
 };

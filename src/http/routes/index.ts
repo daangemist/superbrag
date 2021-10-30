@@ -5,6 +5,7 @@ import bragsCreate from './brags-create';
 import home from './home';
 import { logout } from './logout';
 import { staticFile } from './static-file';
+import { allowList } from '../middleware/allow-list';
 
 export default function (app: express.Express) {
   // default paths
@@ -25,7 +26,8 @@ export default function (app: express.Express) {
   // GET: /logout
   logout(app);
 
-  app.get('/login/', (req, res) => {
+  app.use('/login', allowList);
+  app.get('/login', (req, res) => {
     res.render('login', {
       title: 'Login ',
       error: typeof req.query.error !== 'undefined',
