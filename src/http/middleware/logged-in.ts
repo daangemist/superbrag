@@ -13,6 +13,7 @@ export const loggedIn = (req: Request, res: Response, next: any) => {
   const token = req.cookies[COOKIE_NAME];
   if (!verify(token)) {
     res.redirect('/login');
+    return;
   }
   next();
 };
