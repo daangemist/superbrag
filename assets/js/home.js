@@ -18,6 +18,7 @@ document.addEventListener(
 document.getElementById('admin-close').addEventListener(
   'click',
   function (event) {
+    event.preventDefault();
     document.getElementById('admin').remove();
   }
 );

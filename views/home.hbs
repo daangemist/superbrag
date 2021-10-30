@@ -9,14 +9,15 @@
 
 {{#if loggedIn }}
   <div id="admin">
-    <div id="admin-close" class="pulled-right clickable" title="Close">X</div>
     <form method="post" action="/brags/create">
         <textarea id="editor" name="contents" rows="5" cols="80" placeholder="Type your brag, in Markdown." required></textarea>
         <input type="submit" value="Create" />
         <hr class="small-margin" />
         <div id="compiled-markdown"></div>
     </form>
-    <a href="/logout" class="pulled-right">Logout</a>
+    <div class="options">
+      <a href="#" id="admin-close">close</a> / <a href="/logout">logout</a>
+    </div>
   </div>
 {{/if}}
 
@@ -28,7 +29,7 @@
       {{#if ../loggedIn }}
         <div class="admin-options">
           <a href="https://twitter.com/intent/tweet?text={{ urlencode body }}" target="_blank" rel="noreferrer">tweet</a>
-          - <a href="/brags/{{ id }}/delete" class="danger">delete</a>
+          / <a href="/brags/{{ id }}/delete" class="danger">delete</a>
         </div>
       {{/if}}
     </div>

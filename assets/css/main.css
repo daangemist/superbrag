@@ -65,11 +65,11 @@ main {
   margin: 4px;
 }
 
-#admin-close {
-  padding: 4px;
-  font-weight: bold;
-}
-
 .clickable {
   cursor: pointer;
+}
+
+#admin .options {
+  text-align: right;
+  font-size: 75%;
 }
