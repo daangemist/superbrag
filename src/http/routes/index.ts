@@ -6,7 +6,7 @@ import home from './home';
 import { logout } from './logout';
 import { staticFile } from './static-file';
 import { allowList } from '../middleware/allow-list';
-import { bragDelete, bragDeleteForm } from './delete';
+import { bragDelete, bragDeleteForm } from './brags-delete';
 
 export default function (app: express.Express) {
   // default paths
