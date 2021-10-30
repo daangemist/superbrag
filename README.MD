@@ -100,3 +100,4 @@ a brag document.
 - [Emily Leung](https://css-tricks.com/author/emilyleung/) at [css-tricks.com](https://css-tricks.com/) for creating the [article](https://css-tricks.com/creating-your-own-bragdoc-with-eleventy/)
 that served as an inspiration to this application.
 - [@andrybrewer](https://github.com/andybrewer) for creating the [mvp.css](https://andybrewer.github.io/mvp/) CSS framework
+- The [twemoji](https://github.com/twitter/twemoji) project, for the favicon.

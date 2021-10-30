@@ -1,12 +1,23 @@
 import express from 'express';
+import path from 'path';
 import passwordCheck from './password-check';
 import bragsCreate from './brags-create';
 import home from './home';
 import { logout } from './logout';
+import { staticFile } from './static-file';
 
 export default function (app: express.Express) {
+  // default paths
   app.use('/assets', express.static('assets'));
   app.use('/uploads', express.static('uploads'));
+  app.get(
+    '/favicon.ico',
+    staticFile(path.join(__dirname, '../../../assets/favicon/favicon.ico'))
+  );
+  app.get(
+    '/manifest.json',
+    staticFile(path.join(__dirname, '../../../assets/favicon/site.webmanifest'))
+  );
 
   // GET: home
   home(app);
