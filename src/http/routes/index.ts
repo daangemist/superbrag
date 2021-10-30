@@ -6,6 +6,7 @@ import home from './home';
 import { logout } from './logout';
 import { staticFile } from './static-file';
 import { allowList } from '../middleware/allow-list';
+import { bragDelete, bragDeleteForm } from './delete';
 
 export default function (app: express.Express) {
   // default paths
@@ -39,4 +40,9 @@ export default function (app: express.Express) {
 
   // POST: /brags/create
   bragsCreate(app);
+
+  // GET: /brags/:id/delete
+  bragDeleteForm(app);
+  // POST: /brags/:id/delete
+  bragDelete(app);
 }

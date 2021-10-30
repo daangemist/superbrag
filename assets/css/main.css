@@ -58,3 +58,7 @@ main {
 .clear {
   clear: both;
 }
+
+.danger {
+  color: red;
+}

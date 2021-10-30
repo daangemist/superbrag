@@ -21,7 +21,10 @@
       {{{ markdown body }}}
       <div class="date"><span title="{{ date publication }}">{{ relative publication }}</span></div>
       {{#if ../loggedIn }}
-        <div class="admin-options"><a href="https://twitter.com/intent/tweet?text={{ urlencode body }}" target="_blank" rel="noreferrer">Tweet</a></div>
+        <div class="admin-options">
+          <a href="https://twitter.com/intent/tweet?text={{ urlencode body }}" target="_blank" rel="noreferrer">tweet</a>
+          - <a href="/brags/{{ id }}/delete" class="danger">delete</a>
+        </div>
       {{/if}}
     </div>
   {{ else }}

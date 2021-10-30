@@ -1,0 +1,6 @@
+<h1>Delete this brag?</h1>
+<p><em>{{ brag.body }}</em></p>
+
+<form method="post" action="/brags/{{ brag.id }}/delete">
+  <input type="submit" value="I am sure." /> <a href="/">Go back</a>
+</form>
