@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+VERSION=$1
+
+if [ "$VERSION" = "" ]; then echo "VERSION is not set" && exit 2; else echo "version is '$VERSION'"; fi
+
+FILENAME="superbrag-${VERSION}.zip"
+
+zip -r $FILENAME package.json package-lock.json build assets views README.MD

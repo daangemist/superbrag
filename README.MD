@@ -83,6 +83,14 @@ It is possible to change the `sqlite` storage to `mysql`. Follow these steps:
 1. Run `npm i mysql` to install the mysql library
 2. Change the `connectionString` attribute or `DB` environment variable to a mysql connection string. For example `mysql://examplename:somepassword@examplehost:3306/dbname`
 
+# Building
+
+Run the two scripts `docker-build` and `package` in `.build` to generate a zip file and a 
+docker image. They must be run from the root of the project.
+
+    ./.build/docker-build <version>
+    ./.build/package <version>
+
 # Contributing
 
 Contributions are welcome. This does not necessarily have to be code, it can also be updated documentation, tutorials, bug reports or pull requests.
