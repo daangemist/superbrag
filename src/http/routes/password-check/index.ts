@@ -1,5 +1,5 @@
 import { CookieOptions, Express } from 'express';
-import add from 'date-fns/add'
+import add from 'date-fns/add';
 import { generate } from '../../../auth';
 import { getConfig } from '../../../config';
 import { COOKIE_NAME } from '../../middleware/logged-in';
@@ -29,10 +29,5 @@ export default (app: Express) =>
     if (getConfig().domain) {
       cookieOptions.domain = getConfig().domain;
     }
-    res.cookie(
-      COOKIE_NAME,
-      token,
-      cookieOptions
-    )
-      .redirect('/');
+    res.cookie(COOKIE_NAME, token, cookieOptions).redirect('/');
   });

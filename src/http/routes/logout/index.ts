@@ -5,5 +5,5 @@ export function logout(app: Express) {
   app.get('/logout', (_req, res) => {
     res.clearCookie(COOKIE_NAME);
     res.redirect('/');
-  })
+  });
 }
