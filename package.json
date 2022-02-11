@@ -1,6 +1,6 @@
 {
   "name": "superbrag",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "An open source application to easily share your updates while building in public.",
   "main": "build/index.js",
@@ -57,6 +57,6 @@
     "sanitize-html": "^2.5.2",
     "sqlite": "^4.0.23",
     "sqlite3": "^5.0.2",
-    "supersave": "^0.10.3"
+    "supersave": "^0.12.1"
   }
 }

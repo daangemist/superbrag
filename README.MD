@@ -1,5 +1,4 @@
-Superbrag
-=============================
+# Superbrag
 
 > "It's the small things that make a difference in life."
 
@@ -8,7 +7,7 @@ you completed. These 'forgotten' tasks are also called "invisible work".
 
 Sometimes you'd like to recall those tasks, and find you are unable to. A
 possible solution, proposed by [Julia Evans](https://jvns.ca/) in an
-[article](https://jvns.ca/blog/brag-documents/) is to keep a *brag document*.
+[article](https://jvns.ca/blog/brag-documents/) is to keep a _brag document_.
 You can write anything you'd like in a brag document, as long as it helps you
 to remember tasks otherwise forgotten.
 
@@ -52,27 +51,28 @@ which environment variables are available to configure the application.
 
 # Configuration
 
-Configuration parameters can be provided in two different ways: *environment
-variables*, or an entry in a `config.json` file in the root of the superbrag
+Configuration parameters can be provided in two different ways: _environment
+variables_, or an entry in a `config.json` file in the root of the superbrag
 installation folder. Values in the `config.json` take precedence over
 environment variables.
 
 `sessionSecret` and `accessPassword` are required to be
 set, else the application will not start.
 
-| config.json | Environment | Required | Type | Default | Description |
-| ----------- |------------ | -------- | ---- | ------- |----------- |
-| sessionSecret | SESSION_SECRET | x | string || The secret used to sign the session cookie. Run `openssl rand -hex 32` to generate a random string to use for this field. |
-| accessPassword | ACCESS_PASSWORD | x | string || The password with which can be logged in to post new brags.|
-| port | PORT || number | 3000 | The port on which the application will be available. |
-| secureSite | SECURE_SITE || boolean | false | Indicates whether the site is using TLS. Is used for the auth cookie `secureSite` setting. |
-| domain | DOMAIN || string | `undefined` | An optional configuration of the domain. Is used to set the domain on the auth cookie, if available. |
-| connectionString | DB || string | sqlite://db.sqlite | A [supersave](https://www.npmjs.com/package/supersave) connection string. Currently only `sqlite` is supported. On docker, the default is `sqlite:///data/db.sqlite`.
-| apiEnabled | API_ENABLED || boolean | false | Enable an api, use `/api/brags` to retrieve a list of brags.
-| title | TITLE || string | Superbrag | The title for the application. Is shown in the title bar, and at the top of the page. |
-| introduction | INTRODUCTION || string || Optionally, an introduction text that is shown on the page.
-| avatar | AVATAR || string || Optionally, the URL for an avatar to display. It is rendered with *with/height=80* on the page.
-| ipsAllowed | IPS_ALLOWED || string || A comma-separated list of IP addresses which are allowed to access `/login`. 
+| config.json      | Environment        | Required | Type    | Default            | Description                                                                                                                                                           |
+| ---------------- | ------------------ | -------- | ------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sessionSecret    | SESSION_SECRET     | x        | string  |                    | The secret used to sign the session cookie. Run `openssl rand -hex 32` to generate a random string to use for this field.                                             |
+| accessPassword   | ACCESS_PASSWORD    | x        | string  |                    | The password with which can be logged in to post new brags.                                                                                                           |
+| port             | PORT               |          | number  | 3000               | The port on which the application will be available.                                                                                                                  |
+| secureSite       | SECURE_SITE        |          | boolean | false              | Indicates whether the site is using TLS. Is used for the auth cookie `secureSite` setting.                                                                            |
+| domain           | DOMAIN             |          | string  | `undefined`        | An optional configuration of the domain. Is used to set the domain on the auth cookie, if available.                                                                  |
+| connectionString | DB                 |          | string  | sqlite://db.sqlite | A [supersave](https://www.npmjs.com/package/supersave) connection string. Currently only `sqlite` is supported. On docker, the default is `sqlite:///data/db.sqlite`. |
+| apiEnabled       | API_ENABLED        |          | boolean | false              | Enable an api, use `/api/brags` to retrieve a list of brags.                                                                                                          |
+| apiCreateEnabled | API_CREATE_ENABLED |          | boolean | false              | Enable posting new posts via an API. See [API](#API) for more information.                                                                                            |
+| title            | TITLE              |          | string  | Superbrag          | The title for the application. Is shown in the title bar, and at the top of the page.                                                                                 |
+| introduction     | INTRODUCTION       |          | string  |                    | Optionally, an introduction text that is shown on the page.                                                                                                           |
+| avatar           | AVATAR             |          | string  |                    | Optionally, the URL for an avatar to display. It is rendered with _with/height=80_ on the page.                                                                       |
+| ipsAllowed       | IPS_ALLOWED        |          | string  |                    | A comma-separated list of IP addresses which are allowed to access `/login`.                                                                                          |
 
 If you want to invalidate all logins, change the `sessionSecret` value.
 
@@ -83,9 +83,32 @@ It is possible to change the `sqlite` storage to `mysql`. Follow these steps:
 1. Run `npm i mysql` to install the mysql library
 2. Change the `connectionString` attribute or `DB` environment variable to a mysql connection string. For example `mysql://examplename:somepassword@examplehost:3306/dbname`
 
+# API
+
+Use the `apiEnabled` and `apiCreateEnabled` configuration values to enable a REST API.
+
+## Authorization
+
+The endpoint for retrieving posts (`/api/brags`) is public. If `apiCreateEnabled` is true, a `POST` can be performed towards
+`/api/brags` to create a new POST. This endpoint is protected by the `accessPassword`. Add an `Authorization` header with the
+value `Bearer ${accessPassword`}, where you obviously replace `${accessPassword}` with the actual password.
+
+## Create payload example
+
+```
+{
+  "publication": 1644515869,
+  "published": true,
+  "body": "This is a sample payload that shows how to create a new post."
+}
+```
+
+The value for `publication` is the Epoch Unix timestamp in seconds. See [unixtimestamp.com](https://www.unixtimestamp.com/) for
+more information. It is optional, if left out it will be filled with the current time.
+
 # Building
 
-Run the two scripts `docker-build` and `package` in `.build` to generate a zip file and a 
+Run the two scripts `docker-build` and `package` in `.build` to generate a zip file and a
 docker image. They must be run from the root of the project.
 
     ./.build/docker-build <version>
@@ -105,8 +128,8 @@ Please create an Issue to propose a feature you want to implement, so that the d
 Many thanks to:
 
 - [Julia Evans](https://jvns.ca/) for introduction the concept of
-a brag document.
+  a brag document.
 - [Emily Leung](https://css-tricks.com/author/emilyleung/) at [css-tricks.com](https://css-tricks.com/) for creating the [article](https://css-tricks.com/creating-your-own-bragdoc-with-eleventy/)
-that served as an inspiration to this application.
+  that served as an inspiration to this application.
 - [@andrybrewer](https://github.com/andybrewer) for creating the [mvp.css](https://andybrewer.github.io/mvp/) CSS framework
 - The [twemoji](https://github.com/twitter/twemoji) project, for the favicon.

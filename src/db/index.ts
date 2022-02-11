@@ -8,11 +8,28 @@ import { getConfig } from '../config';
 let dbPromise: Promise<SuperSave>;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const onlyGet = (req: Request, res: Response, next: any) => {
-  if (req.method !== 'GET') {
+const secureApi = (req: Request, res: Response, next: any) => {
+  if (req.method === 'GET') {
+    next();
+    return;
+  }
+
+  if (req.method !== 'POST' || !getConfig().apiCreateEnabled) {
     res.status(401).json({ message: 'Not allowed.' });
     return;
   }
+
+  // Check the authorization header
+  const { authorization } = req.headers;
+
+  if (
+    !authorization ||
+    authorization !== `Bearer ${getConfig().accessPassword}`
+  ) {
+    res.status(401).json({ message: 'Not allowed' });
+    return;
+  }
+
   next();
 };
 
@@ -24,7 +41,7 @@ export async function initialize(app?: Express) {
 
   if (app) {
     const superSave = await dbPromise;
-    app.use('/api', onlyGet, await superSave.getRouter('/api'));
+    app.use('/api', secureApi, await superSave.getRouter('/api'));
   }
 }
 

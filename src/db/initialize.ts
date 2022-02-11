@@ -19,7 +19,22 @@ export default async (connectionString: string, apiEnabled: boolean) => {
   if (!apiEnabled) {
     await superSave.addEntity(BRAG_DEFINITION);
   } else {
-    await superSave.addCollection(BRAG_DEFINITION);
+    await superSave.addCollection({
+      ...BRAG_DEFINITION,
+      hooks: [
+        {
+          createBefore: (_collection, _req, _res, entity: any) => {
+            if (entity.publication) {
+              return entity;
+            }
+            return {
+              ...entity,
+              publication: Math.floor(new Date().getTime() / 1000),
+            };
+          },
+        },
+      ],
+    });
   }
 
   return superSave;

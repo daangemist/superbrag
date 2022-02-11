@@ -8,6 +8,7 @@ export type Brag = {
 export type Config = {
   connectionString: string;
   apiEnabled: boolean;
+  apiCreateEnabled: boolean;
   port: number;
   title: string;
   introduction?: string;

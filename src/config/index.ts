@@ -8,6 +8,7 @@ const readFileAsync = promisify(readFile);
 let config: Config = {
   connectionString: process.env.DB ?? 'sqlite://db.sqlite',
   apiEnabled: process.env.API_ENABLED === 'true',
+  apiCreateEnabled: process.env.API_CREATE_ENABLED === 'true',
   title: process.env.TITLE || 'Superbrag',
   port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
   accessPassword: process.env.ACCESS_PASSWORD ?? '',
