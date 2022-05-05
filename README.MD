@@ -38,6 +38,11 @@ This will install all required dependencies. To start Superbrag, simply run:
 Check out the [Configuration](#Configuration) section for more information on configuration
 parameters.
 
+## Telegram bot
+
+It's also possible to post your updates using a Telegram bot. For more information see
+[daangemist/superbrag-telegram-bot](https://github.com/daangemist/superbrag-telegram-bot)
+
 ## Docker
 
 This sample command will start a docker container, called `superbrag`,
