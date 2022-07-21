@@ -78,6 +78,7 @@ set, else the application will not start.
 | introduction     | INTRODUCTION       |          | string  |                    | Optionally, an introduction text that is shown on the page.                                                                                                           |
 | avatar           | AVATAR             |          | string  |                    | Optionally, the URL for an avatar to display. It is rendered with _with/height=80_ on the page.                                                                       |
 | ipsAllowed       | IPS_ALLOWED        |          | string  |                    | A comma-separated list of IP addresses which are allowed to access `/login`.                                                                                          |
+| snippet          | n/a                |          | string  |                    | An optional code snippet to insert into the page, just before the close body tag.                                                                                     |
 
 If you want to invalidate all logins, change the `sessionSecret` value.
 

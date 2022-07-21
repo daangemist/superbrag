@@ -18,4 +18,5 @@ export type Config = {
   secureSite: boolean;
   domain?: string;
   ipsAllowed?: string;
+  snippet?: string;
 };

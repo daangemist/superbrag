@@ -1,6 +1,6 @@
 {
   "name": "superbrag",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "An open source application to easily share your updates while building in public.",
   "main": "build/index.js",
